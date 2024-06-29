@@ -17,13 +17,11 @@ class MateriFactory extends Factory
      */
     public function definition(): array
     {
-        $filePath = $this->faker->file(storage_path('app/public/materi'), 'storage/app/public/materi', false);
-
         return [
             'name' => $this->faker->name(),
             'slug' => $this->faker->slug(),
             'description' => $this->faker->paragraph(),
-            'file' => $filePath,
+            'file' => $this->faker->randomElement(['placeholder-1.pdf']),
         ];
     }
 }

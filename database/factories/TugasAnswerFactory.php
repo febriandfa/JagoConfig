@@ -18,14 +18,12 @@ class TugasAnswerFactory extends Factory
      */
     public function definition(): array
     {
-        $filePath = $this->faker->file(storage_path('app/public/tugas_answer'), 'storage/app/public/tugas_answer', false);
-
         return [
             'tugas_id' => Tugas::inRandomOrder()->where('is_active', 'Y')->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,
             'answer_1' => $this->faker->paragraph(),
-            'answer_2' => $filePath,
-            'answer_3' => $filePath,
+            'answer_2' => $this->faker->randomElement(['placeholder-1.pdf']),
+            'answer_3' => $this->faker->randomElement(['placeholder-1.pdf']),
             'grade' => $this->faker->numberBetween(1, 100),
             'grade_category' => $this->faker->randomElement(['A', 'B', 'C', 'D', 'E']),
             'feedback'=> $this->faker->paragraph()

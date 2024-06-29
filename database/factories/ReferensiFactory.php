@@ -16,13 +16,11 @@ class ReferensiFactory extends Factory
      */
     public function definition(): array
     {
-        $filePath = $this->faker->file(storage_path('app/public/referensi'), 'storage/app/public/referensi', false);
-
         return [
             'name' => $this->faker->name(),
             'slug' => $this->faker->slug(),
             'description' => $this->faker->paragraph(),
-            'file' => $filePath,
+            'file' => $this->faker->randomElement(['placeholder-1.pdf']),
         ];
     }
 }
