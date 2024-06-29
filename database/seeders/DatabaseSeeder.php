@@ -33,6 +33,6 @@ class DatabaseSeeder extends Seeder
         Referensi::factory(5)->create();
         Absen::factory(1)->create();
         Kegiatan::factory(5)->create();
-        TugasAnswer::factory(5)->create();
+        // TugasAnswer::factory(5)->create();
     }
 }
