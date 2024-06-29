@@ -113,9 +113,12 @@ export default function TugasAnswerEdit({ auth }) {
                     </IconTitle>
                     <form onSubmit={handleOnSubmit} className="space-y-4">
                         <div>
-                            <Label htmlFor="grade" text="Aspek Penilaian (1-5)" />
+                            <Label
+                                htmlFor="grade"
+                                text="Aspek Penilaian (1-5)"
+                            />
                             <InputText
-                                autoFocus={data.grade == null}
+                                autoFocus={data.nilaiPersiapan == null}
                                 name="nilaiPersiapan"
                                 placeholder="Nilai Persiapan..."
                                 value={data.nilaiPersiapan}
@@ -124,14 +127,14 @@ export default function TugasAnswerEdit({ auth }) {
                                 }
                             />
                             <InputError
-                                message={errors.grade}
+                                message={errors.nilaiPersiapan}
                                 className="mt-2"
                             />
                         </div>
                         <div>
                             <Label htmlFor="grade" text="Aspek Proses (1-5)" />
                             <InputText
-                                autoFocus={data.grade == null}
+                                autoFocus={data.nilaiProses == null}
                                 name="nilaiProses"
                                 placeholder="Nilai Proses..."
                                 value={data.nilaiProses}
@@ -140,14 +143,14 @@ export default function TugasAnswerEdit({ auth }) {
                                 }
                             />
                             <InputError
-                                message={errors.grade}
+                                message={errors.nilaiProses}
                                 className="mt-2"
                             />
                         </div>
                         <div>
                             <Label htmlFor="grade" text="Aspek Waktu (1-5)" />
                             <InputText
-                                autoFocus={data.grade == null}
+                                autoFocus={data.nilaiWaktu == null}
                                 name="nilaiWaktu"
                                 placeholder="Nilai Waktu..."
                                 value={data.nilaiWaktu}
@@ -156,14 +159,14 @@ export default function TugasAnswerEdit({ auth }) {
                                 }
                             />
                             <InputError
-                                message={errors.grade}
+                                message={errors.nilaiWaktu}
                                 className="mt-2"
                             />
                         </div>
                         <div>
                             <Label htmlFor="grade" text="Aspek Hasil (1-5)" />
                             <InputText
-                                autoFocus={data.grade == null}
+                                autoFocus={data.nilaiHasil == null}
                                 name="nilaiHasil"
                                 placeholder="Nilai Hasil..."
                                 value={data.nilaiHasil}
@@ -172,14 +175,14 @@ export default function TugasAnswerEdit({ auth }) {
                                 }
                             />
                             <InputError
-                                message={errors.grade}
+                                message={errors.nilaiHasil}
                                 className="mt-2"
                             />
                         </div>
                         <div>
                             <Label htmlFor="grade" text="Aspek Penutup (1-5)" />
                             <InputText
-                                autoFocus={data.grade == null}
+                                autoFocus={data.nilaiPenutup == null}
                                 name="nilaiPenutup"
                                 placeholder="Nilai Penutup..."
                                 value={data.nilaiPenutup}
@@ -188,26 +191,28 @@ export default function TugasAnswerEdit({ auth }) {
                                 }
                             />
                             <InputError
-                                message={errors.grade}
+                                message={errors.nilaiPenutup}
                                 className="mt-2"
                             />
                         </div>
-                        <div>
-                            <Label htmlFor="grade" text="Total Nilai" />
-                            <InputText
-                                autoFocus={data.grade == null}
-                                placeholder="Nilai Tugas..."
-                                disabled
-                                value={answer.grade}
-                                onChange={(e) =>
-                                    setData("grade", e.target.value)
-                                }
-                            />
-                            <InputError
-                                message={errors.grade}
-                                className="mt-2"
-                            />
-                        </div>
+                        {answer.grade && (
+                            <div>
+                                <Label htmlFor="grade" text="Total Nilai" />
+                                <InputText
+                                    autoFocus={data.grade == null}
+                                    placeholder="Nilai Tugas..."
+                                    value={answer.grade}
+                                    disabled
+                                    onChange={(e) =>
+                                        setData("grade", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.grade}
+                                    className="mt-2"
+                                />
+                            </div>
+                        )}
                         <div>
                             <Label
                                 htmlFor="grade_category"
